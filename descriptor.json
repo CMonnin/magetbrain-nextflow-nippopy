@@ -1,0 +1,50 @@
+{
+  "name": "magetbrain-nextflow",
+  "description": "Runs the MAGeT Brain segmentation pipeline using Nextflow on a MAGeTBrain valid dataset with an atlas provided by the user",
+  "tool-version": "1.0.0",
+  "schema-version": "0.5",
+  "command-line": "nextflow run [[NIPOPPY_TOOL_PATH]]/magetbrain.nf --inputDir [MAGETBRAIN_DIR] --outputDir [OUTPUT_DIR] --primarySpectra [PRIMARY_SPECTRA] -C [NEXTFLOW_CONFIG] -params-file [PARAMETERS_FILE]",
+  "inputs": [
+    {
+      "id": "MAGeTBrain_dir",
+      "name": "MAGeTBrain Directory",
+      "description": "The root folder of a MAGeTBrain valid dataset. Passed to Nextflow as --inputDir.",
+      "optional": false,
+      "type": "String",
+      "value-key": "[MAGETBRAIN_DIR]"
+    },
+    {
+      "id": "output_dir",
+      "name": "Output Directory",
+      "description": "The directory where the MAGeT Brain output files should be stored. Passed to Nextflow as --outdir.",
+      "optional": false,
+      "type": "String",
+      "value-key": "[OUTPUT_DIR]"
+    },
+    {
+      "id": "primary_spectra",
+      "name": "Primary Spectra",
+      "description": "The primary Spectra to be used by MAGeT, either T1w or T2w",
+      "optional": true,
+      "type": "String",
+      "value-choices": ["T1w", "T2w"],
+      "value-key": "[PRIMARY_SPECTRA]"
+    },
+    {
+      "id": "nextflow_config",
+      "name": "nextflow configuration file",
+      "description": "A nextflow configuration JSON file can be passed to nextflow to change the default parameters and profile, if desired",
+      "optional": true,
+      "type": "File",
+      "value-key": "[NEXTFLOW_CONFIG]"
+    },
+    {
+      "id": "parameters_file",
+      "name": "nextflow parameters file",
+      "description": "A nextflow parameters JSON or YAML file can be passed to nextflow to change only default parameters, if desired",
+      "optional": true,
+      "type": "File",
+      "value-key": "[PARAMETERS_FILE]"
+    }
+  ]
+}
